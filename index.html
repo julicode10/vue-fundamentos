@@ -12,10 +12,11 @@
       const vm = Vue.createApp({
         data() {
           return {
-            text: "Hello Word!",
+            attr: "src",
+            img: "https://picsum.photos/200/300",
           };
         },
-        template: `<div v-once v-text="text"></div>`,
+        template: `<img v-bind:[attr]="img"/>`,
       }).mount("#app");
     </script>
   </body>
