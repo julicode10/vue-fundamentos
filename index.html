@@ -12,11 +12,23 @@
       const vm = Vue.createApp({
         data() {
           return {
-            attr: "src",
-            img: "https://picsum.photos/200/300",
+            event: "submit",
+            counter: 0,
           };
         },
-        template: `<img v-bind:[attr]="img"/>`,
+        methods: {
+          increment() {
+            this.counter++;
+          },
+          submit() {
+            this.counter++;
+          },
+        },
+        template: `
+            <form v-on:[event].prevent="submit">
+                <button >{{ counter }}</button>    
+            </form>
+        `,
       }).mount("#app");
     </script>
   </body>
