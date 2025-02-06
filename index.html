@@ -12,21 +12,26 @@
       const vm = Vue.createApp({
         data() {
           return {
-            counter: 0,
+            text: "Hello, Vue 3",
           };
         },
         methods: {
-          increment() {
-            this.counter++;
-          },
-          decrement() {
-            this.counter--;
+          input(e) {
+            this.text = e.target.value;
           },
         },
         template: `
-           <button v-on:click="increment">+1</button>
-           <p>{{ counter }}</p>
-            <button v-on:click="decrement">-1</button> 
+            <p>{{ text }}</p>
+            <input 
+                type="text" 
+                @input="input" 
+                :value="text"
+            />
+
+            <input 
+                type="text"
+                v-model="text"
+            />
         `,
       }).mount("#app");
     </script>
